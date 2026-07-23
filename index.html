@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Escape From Pavel Durov 3D - Backrooms Horror</title>
+
+    <meta name="description" content="3D browser Backrooms horror game: Escape From Pavel Durov! Explore mazes, find keys, defeat the Boss and survive!">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</head>
+<body>
+
+    <div id="game-container">
+        <canvas id="canvas3d"></canvas>
+
+        <div class="vhs-overlay"></div>
+        <div class="vhs-timestamp">
+            <span class="rec-dot"></span>REC [LEVEL 0-2] 00:04:19
+        </div>
+
+        <div id="radar-container">
+            <canvas id="radarCanvas" width="140" height="140"></canvas>
+        </div>
+
+        <div id="crosshair"></div>
+        <div id="toast-notification">⚡ ENERGY DRINK ACTIVATED!</div>
+        <div id="interact-prompt">[F] Interact</div>
+
+        <div id="boss-hud" class="hidden">
+            <div id="boss-name">PAVEL DUROV - FINAL BOSS</div>
+            <div id="boss-hp-bar">
+                <div id="boss-hp-fill"></div>
+            </div>
+            <div id="boss-phase-text">PHASE 1: TONCOIN RAIN</div>
+        </div>
+
+        <div id="hud">
+            <div class="hud-group">
+                <div class="hud-title">Health & Stamina</div>
+                <div class="stat-bar-wrapper">
+                    <span class="stat-icon">❤️</span>
+                    <div class="stat-bar"><div id="health-fill" class="stat-fill"></div></div>
+                </div>
+                <div class="stat-bar-wrapper">
+                    <span class="stat-icon">⚡</span>
+                    <div class="stat-bar"><div id="stamina-fill" class="stat-fill"></div></div>
+                </div>
+            </div>
+
+            <div class="hud-group objective-box">
+                <div id="key-slot" class="key-slot">🔒</div>
+                <div class="objective-text">
+                    <div id="level-title" class="objective-level">Level 0: The Yellow Rooms</div>
+                    <div id="level-desc" class="objective-desc">Find the golden key 🔑 and escape!</div>
+                </div>
+            </div>
+        </div>
+
+        <div id="start-screen" class="screen-overlay">
+            <div class="menu-card">
+                <h1 class="game-title">ESCAPE FROM<br>PAVEL DUROV</h1>
+                <p class="game-subtitle">Explore pitch-black Backrooms mazes, evade Pavel Durov, find the Key 🔑 and escape!</p>
+                <button id="start-btn" class="btn-primary">PLAY GAME</button>
+
+                <div class="controls-guide">
+                    <div><span class="key-badge">WASD / Arrows</span> Walk</div>
+                    <div><span class="key-badge">Shift</span> Sprint</div>
+                    <div><span class="key-badge">Space</span> Jump</div>
+                    <div><span class="key-badge">Left Click / F</span> Shoot Laser / Interact</div>
+                </div>
+            </div>
+        </div>
+
+        <div id="jumpscare-screen" class="hidden">
+            <img id="jumpscare-img" src="" alt="Jumpscare Enemy">
+            <div id="jumpscare-text" class="jumpscare-text">PAVEL DUROV CAUGHT YOU!</div>
+            <button id="restart-btn" class="btn-primary" style="max-width: 300px; margin-top: 30px;">TRY AGAIN</button>
+        </div>
+
+        <div id="win-screen" class="screen-overlay hidden">
+            <div class="menu-card">
+                <h2 class="game-title" style="font-size: 2.2rem; color: #ffd700;">LEVEL COMPLETED! 🔑</h2>
+                <p class="game-subtitle">You unlocked the exit door and escaped to the next level!</p>
+                <button id="next-level-btn" class="btn-primary">NEXT LEVEL</button>
+            </div>
+        </div>
+
+        <div id="victory-screen" class="screen-overlay hidden">
+            <div class="menu-card">
+                <h1 class="game-title">VICTORY! 🎉</h1>
+                <p class="game-subtitle">You escaped all Backrooms levels and survived Pavel Durov!</p>
+                <button id="restart-game-btn" class="btn-primary">PLAY AGAIN</button>
+            </div>
+        </div>
+
+        <div id="whiteout-screen" class="screen-overlay hidden">
+            <div class="whiteout-card">
+                <h1 class="whiteout-title">YOU FREED YOURSELF</h1>
+                <p class="whiteout-subtitle">You climbed the Void Stairs, opened the White Door, and escaped Pavel Durov's Matrix forever...</p>
+                <button id="whiteout-restart-btn" class="btn-primary" style="margin-top: 40px; background: linear-gradient(135deg, #111, #333); color: #fff;">RETURN TO MENU</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/audio.js"></script>
+    <script src="js/textures.js"></script>
+    <script src="js/levels.js"></script>
+    <script src="js/player.js"></script>
+    <script src="js/enemies.js"></script>
+    <script src="js/game.js"></script>
+</body>
+</html>
